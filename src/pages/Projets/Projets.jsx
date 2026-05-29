@@ -180,20 +180,6 @@ export default function Projets() {
                         </div>
                       </div>
                       
-                      <div className="project-stats">
-                        <div className="stat-item">
-                          <div className="stat-number">500+</div>
-                          <div className="stat-label">Jeunes engagés</div>
-                        </div>
-                        <div class="stat-item">
-                          <div className="stat-number">25+</div>
-                          <div className="stat-label">Campagnes actives</div>
-                        </div>
-                        <div className="stat-item">
-                          <div className="stat-number">4.8/5</div>
-                          <div className="stat-label">Note utilisateurs</div>
-                        </div>
-                      </div>
                       
                       <div className="project-image">
                         <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80" alt="Interface Bia Safia" />
@@ -240,20 +226,6 @@ export default function Projets() {
                         </div>
                       </div>
                       
-                      <div className="project-stats">
-                        <div className="stat-item">
-                          <div className="stat-number">150+</div>
-                          <div className="stat-label">Tenders suivis</div>
-                        </div>
-                        <div className="stat-item">
-                          <div className="stat-number">45</div>
-                          <div className="stat-label">Entreprises clientes</div>
-                        </div>
-                        <div className="stat-item">
-                          <div className="stat-number">92%</div>
-                          <div className="stat-label">Taux de satisfaction</div>
-                        </div>
-                      </div>
                       
                       <div className="project-image">
                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Dashboard Suivi Tender" />
@@ -300,20 +272,6 @@ export default function Projets() {
                         </div>
                       </div>
                       
-                      <div className="project-stats">
-                        <div className="stat-item">
-                          <div className="stat-number">4</div>
-                          <div className="stat-label">Langues supportées</div>
-                        </div>
-                        <div className="stat-item">
-                          <div className="stat-number">92%</div>
-                          <div className="stat-label">Précision traduction</div>
-                        </div>
-                        <div className="stat-item">
-                          <div className="stat-number">10k+</div>
-                          <div className="stat-label">Traductions/jour</div>
-                        </div>
-                      </div>
                       
                       <div className="project-image">
                         <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="Interface Kadou IA" />
