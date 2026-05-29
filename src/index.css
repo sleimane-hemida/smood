@@ -1,0 +1,43 @@
+:root {
+  /* Couleurs de base inspirées de ton style.css */
+  --color-primary: #ff6600;
+  --color-primary-hover: #e65c00;
+  --color-bg: #f8f9fa;
+  --color-text-main: #333333;
+  --color-text-dark: #1a1a1a;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  
+  /* Polices de caractères */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Inter', sans-serif;
+  --font-accent: 'Playfair Display', serif;
+}
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  color: var(--color-text-main);
+  background-color: var(--color-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
