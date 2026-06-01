@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { apiUrl } from '../../app/api';
 import './Admin.css';
 
 const metricIcons = ['VI', 'TM', 'PG'];
@@ -146,7 +147,7 @@ export default function Admin() {
 
     async function loadAnalytics() {
       try {
-        const response = await fetch(`/api/dashboard?month=${selectedMonth}`);
+        const response = await fetch(apiUrl(`/api/dashboard?month=${selectedMonth}`));
 
         if (!response.ok) {
           return;
@@ -170,7 +171,7 @@ export default function Admin() {
 
     async function loadMessages() {
       try {
-        const response = await fetch('/api/contact-messages');
+        const response = await fetch(apiUrl('/api/contact-messages'));
 
         if (!response.ok) {
           return;

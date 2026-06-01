@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { apiUrl } from './api'
 
 const SESSION_STORAGE_KEY = 'smood-session-id'
 const LAST_TRACKED_KEY = 'smood-last-tracked-path'
@@ -40,7 +41,7 @@ export default function VisitTracker() {
       userAgent: navigator.userAgent,
     }
 
-    fetch('/api/track-visit', {
+    fetch(apiUrl('/api/track-visit'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

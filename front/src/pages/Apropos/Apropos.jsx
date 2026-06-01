@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Accueil/Accueil.css'; // On réutilise le même CSS global (style.css)
+import { apiUrl } from '../../app/api';
 import diyeImage from '../../assets/diye.jpeg';
 import omarImage from '../../assets/omar.png';
 import oumouImage from '../../assets/oumou.png';
@@ -105,7 +106,7 @@ export default function Apropos() {
     setSubmitState({ type: 'loading', message: 'Envoi du message en cours...' });
 
     try {
-      const response = await fetch('/api/contact-messages', {
+      const response = await fetch(apiUrl('/api/contact-messages'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -89,6 +89,10 @@ app.post('/api/contact-messages', async (request, response) => {
   }
 })
 
-app.listen(port, () => {
-  console.log(`Backend running on http://localhost:${port}`)
-})
+if (process.env.VERCEL !== '1') {
+  app.listen(port, () => {
+    console.log(`Backend running on http://localhost:${port}`)
+  })
+}
+
+export default app
