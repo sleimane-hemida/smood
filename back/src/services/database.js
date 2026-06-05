@@ -3,9 +3,11 @@ import pg from 'pg'
 const { Pool } = pg
 
 function buildPoolConfig() {
-  if (process.env.DATABASE_URL) {
+  const connectionUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL || process.env.smood_POSTGRES_URL;
+
+  if (connectionUrl) {
     return {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: connectionUrl,
     }
   }
 
