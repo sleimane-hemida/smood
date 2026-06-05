@@ -8,6 +8,7 @@ function buildPoolConfig() {
   if (connectionUrl) {
     return {
       connectionString: connectionUrl,
+      ssl: { rejectUnauthorized: false }, // Indispensable pour Vercel Postgres / Supabase
     }
   }
 
