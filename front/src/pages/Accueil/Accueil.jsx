@@ -4,6 +4,7 @@ import './Accueil.css'; // Import global pur pour garantir la compatibilité exa
 import smoodNuitDinfo from '../../assets/smood-nuit-dinfo.png';
 import smood2 from '../../assets/smood2.png';
 import smoodNb from '../../assets/smood-nb.jpeg';
+import HeroAnimation from './HeroAnimation';
 
 export default function Accueil() {
   useEffect(() => {
@@ -65,6 +66,8 @@ export default function Accueil() {
             </div>
           </div>
 
+          <HeroAnimation />
+
           <div className="gallery-container">
             <div className="chevron-line line-1">
               <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400" alt="Code et développement" />
@@ -116,7 +119,7 @@ export default function Accueil() {
             <div className="about-content">
               <div className="about-text">
                 <h2>Pourquoi choisir SMOOD Tech ?</h2>
-                <p>Fondée en 2020, SMOOD Tech est une entreprise spécialisée dans le <strong>développement informatique sur mesure</strong>. Notre équipe d'experts vous accompagne dans la digitalisation de vos processus métier.</p>
+                <p>Fondée en 2024, SMOOD Tech est une entreprise spécialisée dans le <strong>développement informatique sur mesure</strong>. Notre équipe d'experts vous accompagne dans la digitalisation de vos processus métier.</p>
                 <p>Nous combinons <strong>expertise technique</strong> et <strong>approche centrée utilisateur</strong> pour créer des solutions qui répondent précisément à vos besoins.</p>
                 <ul>
                   <li>✅ Développement agile et itératif</li>
