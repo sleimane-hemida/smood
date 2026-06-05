@@ -47,12 +47,39 @@ function SandParticles() {
   const mouse = useRef(new THREE.Vector2(0, 0));
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      mouse.current.x = (e.clientX / window.innerWidth) * 2 - 1;
-      mouse.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    // Mise à jour de la position à partir d'un événement souris ou tactile
+    const updatePosition = (clientX, clientY) => {
+      mouse.current.x = (clientX / window.innerWidth) * 2 - 1;
+      mouse.current.y = -(clientY / window.innerHeight) * 2 + 1;
     };
+
+    // Suivi de la souris (desktop)
+    const handleMouseMove = (e) => {
+      updatePosition(e.clientX, e.clientY);
+    };
+
+    // Suivi du doigt (mobile) — touchmove suit le doigt glissant
+    const handleTouchMove = (e) => {
+      // On prend le premier point de contact
+      const touch = e.touches[0];
+      if (touch) updatePosition(touch.clientX, touch.clientY);
+    };
+
+    // touchstart pour réagir dès le premier appui (sans glissement)
+    const handleTouchStart = (e) => {
+      const touch = e.touches[0];
+      if (touch) updatePosition(touch.clientX, touch.clientY);
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchstart', handleTouchStart);
+    };
   }, []);
 
   // Variables pour la rotation continue
