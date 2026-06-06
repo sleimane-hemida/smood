@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Accueil.css'; // Import global pur pour garantir la compatibilité exacte du template
 import smoodNuitDinfo from '../../assets/smood-nuit-dinfo.png';
@@ -7,6 +7,8 @@ import smoodNb from '../../assets/smood-nb.jpeg';
 import HeroAnimation from './HeroAnimation';
 
 export default function Accueil() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
   useEffect(() => {
     const revealElements = document.querySelectorAll('.scroll-reveal');
     
@@ -37,15 +39,20 @@ export default function Accueil() {
           </Link>
           
           <nav role="navigation" aria-label="Menu principal">
-            <ul>
-              <li><Link to="/" className="nav-link active" aria-current="page">Accueil</Link></li>
-              <li><Link to="/services" className="nav-link">Services</Link></li>
-              <li><Link to="/projets" className="nav-link">Projets</Link></li>
-              <li><Link to="/apropos" className="nav-link">À propos</Link></li>
+            <ul className={menuOpen ? 'active' : ''}>
+              <li><Link to="/" className="nav-link active" aria-current="page" onClick={closeMenu}>Accueil</Link></li>
+              <li><Link to="/services" className="nav-link" onClick={closeMenu}>Services</Link></li>
+              <li><Link to="/projets" className="nav-link" onClick={closeMenu}>Projets</Link></li>
+              <li><Link to="/apropos" className="nav-link" onClick={closeMenu}>À propos</Link></li>
             </ul>
           </nav>
           
-          <button className="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <button
+            className={`menu-toggle${menuOpen ? ' active' : ''}`}
+            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <span></span>
             <span></span>
             <span></span>

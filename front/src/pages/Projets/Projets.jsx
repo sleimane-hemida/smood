@@ -4,6 +4,8 @@ import '../Accueil/Accueil.css'; // On réutilise le même CSS global (style.css
 
 export default function Projets() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   const openProject = (projectId) => {
     setSelectedProject(projectId);
@@ -31,15 +33,20 @@ export default function Projets() {
           </Link>
           
           <nav role="navigation" aria-label="Menu principal">
-            <ul>
-              <li><Link to="/" className="nav-link">Accueil</Link></li>
-              <li><Link to="/services" className="nav-link">Services</Link></li>
-              <li><Link to="/projets" className="nav-link active" aria-current="page">Projets</Link></li>
-              <li><Link to="/apropos" className="nav-link">À propos</Link></li>
+            <ul className={menuOpen ? 'active' : ''}>
+              <li><Link to="/" className="nav-link" onClick={closeMenu}>Accueil</Link></li>
+              <li><Link to="/services" className="nav-link" onClick={closeMenu}>Services</Link></li>
+              <li><Link to="/projets" className="nav-link active" aria-current="page" onClick={closeMenu}>Projets</Link></li>
+              <li><Link to="/apropos" className="nav-link" onClick={closeMenu}>À propos</Link></li>
             </ul>
           </nav>
           
-          <button className="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <button
+            className={`menu-toggle${menuOpen ? ' active' : ''}`}
+            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <span></span>
             <span></span>
             <span></span>

@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Accueil/Accueil.css'; // On réutilise le même CSS global (style.css)
 
 export default function Services() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
   useEffect(() => {
     const revealElements = document.querySelectorAll('.scroll-reveal');
     
@@ -44,15 +46,20 @@ export default function Services() {
           </Link>
           
           <nav role="navigation" aria-label="Menu principal">
-            <ul>
-              <li><Link to="/" className="nav-link">Accueil</Link></li>
-              <li><Link to="/services" className="nav-link active" aria-current="page">Services</Link></li>
-              <li><Link to="/projets" className="nav-link">Projets</Link></li>
-              <li><Link to="/apropos" className="nav-link">À propos</Link></li>
+            <ul className={menuOpen ? 'active' : ''}>
+              <li><Link to="/" className="nav-link" onClick={closeMenu}>Accueil</Link></li>
+              <li><Link to="/services" className="nav-link active" aria-current="page" onClick={closeMenu}>Services</Link></li>
+              <li><Link to="/projets" className="nav-link" onClick={closeMenu}>Projets</Link></li>
+              <li><Link to="/apropos" className="nav-link" onClick={closeMenu}>À propos</Link></li>
             </ul>
           </nav>
           
-          <button className="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <button
+            className={`menu-toggle${menuOpen ? ' active' : ''}`}
+            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <span></span>
             <span></span>
             <span></span>
